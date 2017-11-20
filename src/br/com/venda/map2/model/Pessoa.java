@@ -5,26 +5,29 @@
  */
 package br.com.venda.map2.model;
 
-import static java.util.Calendar.DATE;
-
-
-
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author Computador
  */
+@Entity
 public class Pessoa {
 
-    public Pessoa() {
-    
-    }
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String nome;
     private String cpf;
     private String dataNascimento;
     private Endereco endereco;
+
+    public Pessoa() {
+
+    }
 
     public String getNome() {
         return nome;
@@ -57,6 +60,5 @@ public class Pessoa {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-    
-    
+
 }

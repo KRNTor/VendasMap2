@@ -5,21 +5,30 @@
  */
 package br.com.venda.map2.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author Computador
  */
+@Entity
 class Endereco {
 
-    public Endereco() {
-    }
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String rua;
     private String bairro;
     private String cep;
     private String UF;
     private String cidade;
     private String complemento;
+
+    public Endereco() {
+    }
 
     public String getRua() {
         return rua;
@@ -68,5 +77,5 @@ class Endereco {
     public void setComplemento(String complemento) {
         this.complemento = complemento;
     }
-    
+
 }

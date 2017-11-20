@@ -6,17 +6,22 @@
 package br.com.venda.map2.model;
 
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author Computador
  */
+@Entity
 public class Estoque {
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Item> itens;
 
     public Estoque() {
     }
-    
-    private List<Item> itens;
 
     public void setItens(List<Item> itens) {
         this.itens = itens;
@@ -25,6 +30,5 @@ public class Estoque {
     public List<Item> getItens() {
         return itens;
     }
-    
-    
+
 }

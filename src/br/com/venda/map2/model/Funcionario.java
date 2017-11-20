@@ -5,13 +5,23 @@
  */
 package br.com.venda.map2.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author Computador
  */
-public class Funcionario extends Pessoa{
-       private double salario;
-       private String funcao;
+@Entity
+public class Funcionario extends Pessoa {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    private double salario;
+    private String funcao;
 
     public Funcionario() {
     }
@@ -31,6 +41,5 @@ public class Funcionario extends Pessoa{
     public void setFuncao(String funcao) {
         this.funcao = funcao;
     }
-       
-       
+
 }

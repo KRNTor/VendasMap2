@@ -5,11 +5,15 @@
  */
 package br.com.venda.map2.model;
 
+import javax.persistence.Entity;
+
 /**
  *
  * @author Computador
  */
+@Entity
 public class Cliente extends Pessoa {
+    
     private int qtdCompras;
 
     public Cliente() {

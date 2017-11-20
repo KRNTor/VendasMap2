@@ -5,20 +5,31 @@
  */
 package br.com.venda.map2.model;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 /**
  *
  * @author Computador
  */
+@Entity
 public class Item {
 
-    public Item() {
-    }
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String nome;
     private double precoCompraItem;
     private double precoVendaItem;
+    @OneToOne(fetch = FetchType.EAGER)
     private Fornecedor fornecedor;
     private String validade;
+
+    public Item() {
+    }
 
     public String getNome() {
         return nome;
@@ -59,5 +70,5 @@ public class Item {
     public void setValidade(String validade) {
         this.validade = validade;
     }
-    
+
 }
