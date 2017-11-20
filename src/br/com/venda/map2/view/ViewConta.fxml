@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="631.0" prefWidth="1132.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <Pane prefHeight="631.0" prefWidth="973.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="631.0" prefWidth="1132.0">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="631.0" prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="166.0" prefWidth="200.0" style="-fx-background-color: #3d3d3d;" />
+                              <Pane prefHeight="465.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="465.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #3d3d3d;">
+                                       <children>
+                                          <Button maxWidth="180.0" mnemonicParsing="false" prefHeight="30.0" text="CLEINTE" />
+                                          <Button maxWidth="180.0" mnemonicParsing="false" prefHeight="30.0" text="FUNCIONARIO" />
+                                          <Button maxWidth="180.0" mnemonicParsing="false" prefHeight="30.0" text="FORNECEDOR" />
+                                          <Button maxWidth="180.0" mnemonicParsing="false" prefHeight="30.0" text="ITEM" />
+                                          <Button maxWidth="180.0" mnemonicParsing="false" prefHeight="30.0" text="VENDA" />
+                                          <Button maxWidth="180.0" mnemonicParsing="false" prefHeight="30.0" text="SAIR">
+                                             <VBox.margin>
+                                                <Insets top="215.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Pane>
+                  <Pane prefHeight="631.0" prefWidth="932.0" />
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
