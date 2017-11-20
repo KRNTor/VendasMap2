@@ -5,6 +5,7 @@
  */
 package br.com.venda.map2.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +27,7 @@ public class Endereco {
     private String UF;
     private String cidade;
     private String complemento;
-
+    private int numero;
     public Endereco() {
     }
 
@@ -77,5 +78,14 @@ public class Endereco {
     public void setComplemento(String complemento) {
         this.complemento = complemento;
     }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+    
 
 }
