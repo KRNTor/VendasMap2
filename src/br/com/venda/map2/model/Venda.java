@@ -5,6 +5,7 @@
  */
 package br.com.venda.map2.model;
 
+import br.com.venda.map2.prototype.IPrototype;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.FetchType;
@@ -20,7 +21,7 @@ import javax.persistence.TemporalType;
  *
  * @author Computador
  */
-public class Venda {
+public class Venda implements IPrototype<Venda>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -92,6 +93,11 @@ public class Venda {
 
     public void setDtVenda(Date dtVenda) {
         this.dtVenda = dtVenda;
+    }
+
+    @Override
+    public Venda clone() {
+        return new Venda();
     }
 
 }

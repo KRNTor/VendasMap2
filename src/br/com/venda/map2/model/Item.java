@@ -5,6 +5,7 @@
  */
 package br.com.venda.map2.model;
 
+import br.com.venda.map2.prototype.IPrototype;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ import javax.persistence.OneToOne;
  * @author Computador
  */
 @Entity
-public class Item {
+public class Item implements IPrototype<Item>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -69,6 +70,11 @@ public class Item {
 
     public void setValidade(String validade) {
         this.validade = validade;
+    }
+
+    @Override
+    public Item clone() {
+        return new Item();
     }
 
 }
