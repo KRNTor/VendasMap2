@@ -15,7 +15,7 @@ import javax.persistence.Id;
  * @author Computador
  */
 @Entity
-class Endereco {
+public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
