@@ -5,10 +5,12 @@
  */
 package br.com.venda.map2.view;
 
-import br.com.venda.map2.model.Pessoa;
+import br.com.venda.map2.exception.DAOException;
+import br.com.venda.map2.facade.Facade;
+import br.com.venda.map2.model.Funcionario;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,16 +20,23 @@ import javax.swing.JOptionPane;
 public class ViewLoginController {
 
     @FXML
-    private TextField tfLogin;
+    private JFXTextField tfLogin;
     @FXML
-    private PasswordField tfSenha;
+    private JFXPasswordField tfSenha;
 
     @FXML
-    public void Logar(Pessoa p) {
-        if (p.getLogin().equals(this.tfLogin) && p.getSenha().equals(this.tfSenha)) {
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Erro ao logar", "ERRO", JOptionPane.ERROR_MESSAGE);
+    public void logar() {
+        try {
+            //Colocar Criptografia MD5
+            Funcionario func = new Facade().getFuncionarioByLogin(tfLogin.getText(), tfSenha.getText());
+            if (func != null) {
+                //carregar nova view(ViewConta).
+            } else {
+                //(Wanderson)joptionpane personalizado. 
+                JOptionPane.showMessageDialog(null, "Erro ao logar", "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (DAOException e) {
+            e.printStackTrace();
         }
     }
 }

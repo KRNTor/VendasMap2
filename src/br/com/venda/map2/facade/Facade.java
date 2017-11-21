@@ -128,6 +128,10 @@ public class Facade {
         return this.daoFuncionario.getById(id);
     }
 
+    public Funcionario getFuncionarioByLogin(String login, String senha) throws DAOException {
+        return this.daoFuncionario.getByLogin(login, senha);
+    }
+
     public List<Funcionario> getAllFuncionario() throws DAOException {
         return this.daoFuncionario.getAll();
     }

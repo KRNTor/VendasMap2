@@ -22,24 +22,57 @@ public class Funcionario extends Pessoa {
     private long id;
     private double salario;
     private String funcao;
+    private String login;
+    private String senha;
 
     public Funcionario() {
+    }
+
+    public Funcionario(double salario, String funcao, String login, String senha) {
+        this.salario = salario;
+        this.funcao = funcao;
+        this.login = login;
+        this.senha = senha;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public double getSalario() {
         return salario;
     }
 
-    public String getFuncao() {
-        return funcao;
-    }
-
     public void setSalario(double salario) {
         this.salario = salario;
     }
 
+    public String getFuncao() {
+        return funcao;
+    }
+
     public void setFuncao(String funcao) {
         this.funcao = funcao;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
 }
