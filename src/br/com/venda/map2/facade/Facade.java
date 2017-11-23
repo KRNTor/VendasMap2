@@ -19,7 +19,6 @@ public class Facade {
     private IDaoPessoa daoPessoa;
     private IClienteDAO daoCliente;
     private IEnderecoDAO daoEndereco;
-    private IEstoqueDAO daoEstoque;
     private IFuncionarioDAO daoFuncionario;
     private IFornecedorDAO daoFornecedor;
     private IItemDAO daoItem;
@@ -28,7 +27,6 @@ public class Facade {
     public Facade() {
         this.daoCliente = new ClienteDAO();
         this.daoEndereco = new EnderecoDAO();
-        this.daoEstoque = new EstoqueDAO();
         this.daoFornecedor = new FornecedorDAO();
         this.daoFuncionario = new FuncionarioDAO();
         this.daoItem = new ItemDAO();
@@ -77,28 +75,7 @@ public class Facade {
         return this.daoEndereco.remove(end);
     }
 
-    //-----E S T O Q U E-----
-    public Estoque saveEstoque(Estoque est) throws DAOException {
-        return this.daoEstoque.save(est);
-    }
-
-    public Estoque getEstoqueById(long id) throws DAOException {
-        return this.daoEstoque.getById(id);
-    }
-
-    public List<Estoque> getAllEstoque() throws DAOException {
-        return this.daoEstoque.getAll();
-    }
-
-    public Estoque updateEstoque(Estoque est) throws DAOException {
-        return this.daoEstoque.update(est);
-    }
-
-    public Estoque removeEstoque(Estoque est) throws DAOException {
-        return this.daoEstoque.remove(est);
-    }
-
-    //-----E S T O Q U E-----
+    //-----F O R N E C E D O R-----
     public Fornecedor saveFornecedor(Fornecedor forn) throws DAOException {
         return this.daoFornecedor.save(forn);
     }
@@ -117,6 +94,10 @@ public class Facade {
 
     public Fornecedor removeFornecedor(Fornecedor forn) throws DAOException {
         return this.daoFornecedor.remove(forn);
+    }
+    
+    public Fornecedor getFornecedorByName(String n) throws DAOException{
+        return this.daoFornecedor.getFornecedorByName(n);
     }
 
     //-----F U N C I O N A R I O-----
@@ -185,4 +166,6 @@ public class Facade {
     public Venda removeVenda(Venda venda) throws DAOException {
         return this.daoVenda.remove(venda);
     }
+
+   
 }

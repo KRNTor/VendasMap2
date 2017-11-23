@@ -12,5 +12,5 @@ import br.com.venda.map2.model.Fornecedor;
  * @author Computador
  */
 public interface IFornecedorDAO extends IDaoGeneric<Fornecedor> {
-    
+    Fornecedor getFornecedorByName(String nome);
 }

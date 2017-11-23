@@ -28,6 +28,9 @@ public class Item implements IPrototype<Item>{
     @OneToOne(fetch = FetchType.EAGER)
     private Fornecedor fornecedor;
     private String validade;
+    private int quantidade;
+
+   
 
     public Item() {
     }
@@ -75,6 +78,14 @@ public class Item implements IPrototype<Item>{
     @Override
     public Item clone() {
         return new Item();
+    }
+    
+     public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
     }
 
 }
