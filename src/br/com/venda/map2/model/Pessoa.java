@@ -5,10 +5,16 @@
  */
 package br.com.venda.map2.model;
 
+import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -22,7 +28,9 @@ public class Pessoa {
     private long id;
     private String nome;
     private String cpf;
-    private String dataNascimento;
+    @Temporal(TemporalType.DATE)
+    private Date dataNascimento;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Endereco endereco;
 
     public Pessoa() {
@@ -37,7 +45,7 @@ public class Pessoa {
         return cpf;
     }
 
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
@@ -49,7 +57,7 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

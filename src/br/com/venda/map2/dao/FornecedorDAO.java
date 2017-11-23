@@ -15,10 +15,12 @@ import javax.persistence.Query;
  * @author Computador
  */
 public class FornecedorDAO extends DaoGenericImpl<Fornecedor> implements IFornecedorDAO {
-        EntityManager em;
+
+    private EntityManager em;
+
     @Override
     public Fornecedor getFornecedorByName(String nome) {
-      try {
+        try {
             em = JPAUtil.getEntityManager();
             Query query = em.createQuery("select f from Fornecedor f where f.nome= :nome");
             query.setParameter("nome", nome);
@@ -29,7 +31,7 @@ public class FornecedorDAO extends DaoGenericImpl<Fornecedor> implements IFornec
         } finally {
             JPAUtil.close();
         }
-        return null;   
+        return null;
     }
-    
+
 }

@@ -5,10 +5,13 @@
  */
 package br.com.venda.map2.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -21,7 +24,7 @@ public class Fornecedor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String nome;
-    //anotação aki
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Endereco endereco;
     private String cnpj;
 

@@ -5,66 +5,93 @@
  */
 package br.com.venda.map2.view;
 
+import br.com.venda.map2.dao.FuncionarioDAO;
 import br.com.venda.map2.exception.DAOException;
 import br.com.venda.map2.facade.Facade;
+import br.com.venda.map2.model.Endereco;
 import br.com.venda.map2.model.Funcionario;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import static javassist.CtMethod.ConstParameter.integer;
 
 /**
  *
  * @author Computador
  */
 public class ViewCadastroFuncionarioController {
+
     @FXML
-    private TextField tfnome;
+    private JFXTextField tfnome;
     @FXML
-    private TextField tfcpf;
+    private JFXTextField tfcpf;
     @FXML
-    private TextField datanascimento;
+    private JFXDatePicker dtNascimento;
     @FXML
-    private TextField tfrua;
+    private JFXTextField tfrua;
     @FXML
-    private TextField tfbairro;
+    private JFXTextField tfbairro;
     @FXML
-    private TextField tfcep;
+    private JFXTextField tfcep;
     @FXML
-    private TextField tfuf;
+    private JFXTextField tfuf;
     @FXML
-    private TextField tfcidade;
+    private JFXTextField tfcidade;
     @FXML
-    private TextField tfcomplemento;
+    private JFXTextField tfcomplemento;
     @FXML
-    private TextField tflogin;
+    private JFXTextField tflogin;
     @FXML
-    private TextField tfsenha;
+    private JFXPasswordField tfsenha;
     @FXML
-    private TextField tfsalario;
+    private JFXTextField tfsalario;
     @FXML
-    private TextField tffuncao;
-     @FXML
-    private TextField tfnumero;
-    
+    private JFXTextField tffuncao;
+    @FXML
+    private JFXTextField tfnumero;
+
     private Facade fa = new Facade();
-     
-     @FXML
-    public void cadastrar() throws DAOException{
-        Funcionario f = new Funcionario();
-        f.setNome(this.tfnome.getText());
-        f.setCpf(this.tfcpf.getText());
-        f.setDataNascimento(this.datanascimento.getText());
-        f.setLogin(this.tflogin.getText());
-        f.setSenha(this.tfsenha.getText());
-        f.getEndereco().setRua(this.tfrua.getText());
-        f.getEndereco().setCep(this.tfcep.getText());
-        f.getEndereco().setBairro(this.tfbairro.getText());
-        f.getEndereco().setCidade(this.tfcidade.getText());
-        f.getEndereco().setComplemento(this.tfcomplemento.getText());
-        f.getEndereco().setNumero(Integer.valueOf(this.tfnumero.getText()));
-        f.setSalario(Double.valueOf(this.tfsalario.getText()));
-        f.setFuncao(this.tffuncao.getText());
-        
-        fa.saveFuncionario(f);
+    private String dia;
+    private String mes;
+    private String ano;
+
+    @FXML
+    public void cadastrar() {
+        try {
+            if (this.dtNascimento.getValue() != null) {
+                this.dia = String.valueOf(this.dtNascimento.getValue().getDayOfMonth());
+                this.mes = String.valueOf(this.dtNascimento.getValue().getMonthValue());
+                this.ano = String.valueOf(this.dtNascimento.getValue().getYear());
+            } else {
+                this.dia = "30";
+                this.mes = "11";
+                this.ano = "0002";
+            }
+            Funcionario f = new Funcionario();
+            f.setNome(this.tfnome.getText());
+            f.setCpf(this.tfcpf.getText());
+            f.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(dia + '/' + mes + '/' + ano));
+            f.setLogin(this.tflogin.getText());
+            f.setSenha(this.tfsenha.getText());
+            Endereco end = new Endereco();
+            end.setRua(this.tfrua.getText());
+            end.setCep(this.tfcep.getText());
+            end.setBairro(this.tfbairro.getText());
+            end.setCidade(this.tfcidade.getText());
+            end.setComplemento(this.tfcomplemento.getText());
+            end.setNumero(Integer.valueOf(this.tfnumero.getText()));
+            f.setSalario(Double.valueOf(this.tfsalario.getText()));
+            f.setEndereco(end);
+            f.setFuncao(this.tffuncao.getText());
+            new FuncionarioDAO().save(f);
+        } catch (DAOException ex) {
+            Logger.getLogger(ViewCadastroFuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(ViewCadastroFuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

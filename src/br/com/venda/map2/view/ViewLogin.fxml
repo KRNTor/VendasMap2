@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -27,6 +28,7 @@
                            </VBox.margin>
                         </JFXPasswordField>
                         <JFXButton onAction="#logar" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #1ed760;" text="entrar" textFill="WHITE" />
+                        <Label onMouseClicked="#cadastrar_Se" text="cadastrar-se" textFill="WHITE" />
                      </children>
                   </VBox>
                </children>

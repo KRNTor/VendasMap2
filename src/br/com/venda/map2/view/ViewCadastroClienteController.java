@@ -8,7 +8,12 @@ package br.com.venda.map2.view;
 import br.com.venda.map2.exception.DAOException;
 import br.com.venda.map2.facade.Facade;
 import br.com.venda.map2.model.Cliente;
-import br.com.venda.map2.model.Funcionario;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextField;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -17,42 +22,61 @@ import javafx.scene.control.TextField;
  * @author Computador
  */
 public class ViewCadastroClienteController {
+
     @FXML
-    private TextField tfnome;
+    private JFXTextField tfnome;
     @FXML
-    private TextField tfcpf;
+    private JFXTextField tfcpf;
     @FXML
-    private TextField tfdatanascimento;
+    private JFXDatePicker dtNascimento;
     @FXML
-    private TextField tfrua;
+    private JFXTextField tfrua;
     @FXML
-    private TextField tfbairro;
+    private JFXTextField tfbairro;
     @FXML
-    private TextField tfcep;
+    private JFXTextField tfcep;
     @FXML
-    private TextField tfuf;
+    private JFXTextField tfuf;
     @FXML
-    private TextField tfcidade;
+    private JFXTextField tfcidade;
     @FXML
-    private TextField tfcomplemento;
+    private JFXTextField tfcomplemento;
     @FXML
-    private TextField tfnumero;
-    
+    private JFXTextField tfnumero;
+
     private Facade fa = new Facade();
-    
+    private String dia;
+    private String mes;
+    private String ano;
+
     @FXML
-    public void cadastrar() throws DAOException{
-        Cliente c = new Cliente();
-        c.setNome(this.tfnome.getText());
-        c.setCpf(this.tfcpf.getText());
-        c.setDataNascimento(this.tfdatanascimento.getText());
-        c.getEndereco().setRua(this.tfrua.getText());
-        c.getEndereco().setCep(this.tfcep.getText());
-        c.getEndereco().setBairro(this.tfbairro.getText());
-        c.getEndereco().setCidade(this.tfcidade.getText());
-        c.getEndereco().setComplemento(this.tfcomplemento.getText());
-        c.getEndereco().setNumero(Integer.valueOf(this.tfnumero.getText()));
-        c.setQtdCompras(0);
-        fa.saveCliente(c);
+    public void cadastrar() {
+        try {
+            if (this.dtNascimento.getValue() != null) {
+                this.dia = String.valueOf(this.dtNascimento.getValue().getDayOfMonth());
+                this.mes = String.valueOf(this.dtNascimento.getValue().getMonthValue());
+                this.ano = String.valueOf(this.dtNascimento.getValue().getYear());
+            } else {
+                this.dia = "30";
+                this.mes = "11";
+                this.ano = "0002";
+            }
+            Cliente c = new Cliente();
+            c.setNome(this.tfnome.getText());
+            c.setCpf(this.tfcpf.getText());
+            c.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(dia + '/' + mes + '/' + ano));
+            c.getEndereco().setRua(this.tfrua.getText());
+            c.getEndereco().setCep(this.tfcep.getText());
+            c.getEndereco().setBairro(this.tfbairro.getText());
+            c.getEndereco().setCidade(this.tfcidade.getText());
+            c.getEndereco().setComplemento(this.tfcomplemento.getText());
+            c.getEndereco().setNumero(Integer.valueOf(this.tfnumero.getText()));
+            c.setQtdCompras(0);
+            fa.saveCliente(c);
+        } catch (DAOException ex) {
+            Logger.getLogger(ViewCadastroClienteController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(ViewCadastroClienteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

@@ -6,19 +6,22 @@
 package br.com.venda.map2.model;
 
 import br.com.venda.map2.prototype.IPrototype;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author Computador
  */
 @Entity
-public class Item implements IPrototype<Item>{
+public class Item implements IPrototype<Item> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,10 +30,9 @@ public class Item implements IPrototype<Item>{
     private double precoVendaItem;
     @OneToOne(fetch = FetchType.EAGER)
     private Fornecedor fornecedor;
-    private String validade;
+    @Temporal(TemporalType.DATE)
+    private Date validade;
     private int quantidade;
-
-   
 
     public Item() {
     }
@@ -51,7 +53,7 @@ public class Item implements IPrototype<Item>{
         return fornecedor;
     }
 
-    public String getValidade() {
+    public Date getValidade() {
         return validade;
     }
 
@@ -71,7 +73,7 @@ public class Item implements IPrototype<Item>{
         this.fornecedor = fornecedor;
     }
 
-    public void setValidade(String validade) {
+    public void setValidade(Date validade) {
         this.validade = validade;
     }
 
@@ -79,8 +81,8 @@ public class Item implements IPrototype<Item>{
     public Item clone() {
         return new Item();
     }
-    
-     public void setQuantidade(int quantidade) {
+
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 

@@ -5,10 +5,13 @@
  */
 package br.com.venda.map2.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -24,15 +27,18 @@ public class Funcionario extends Pessoa {
     private String funcao;
     private String login;
     private String senha;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Endereco end;
 
     public Funcionario() {
     }
 
-    public Funcionario(double salario, String funcao, String login, String senha) {
+    public Funcionario(double salario, String funcao, String login, String senha, Endereco end) {
         this.salario = salario;
         this.funcao = funcao;
         this.login = login;
         this.senha = senha;
+        this.end = end;
     }
 
     public long getId() {
@@ -73,6 +79,14 @@ public class Funcionario extends Pessoa {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Endereco getEnd() {
+        return end;
+    }
+
+    public void setEnd(Endereco end) {
+        this.end = end;
     }
 
 }
