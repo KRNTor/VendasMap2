@@ -9,20 +9,25 @@ import br.com.venda.map2.exception.DAOException;
 import br.com.venda.map2.facade.Facade;
 import br.com.venda.map2.model.Fornecedor;
 import br.com.venda.map2.model.Item;
+import br.com.venda.map2.model.Pessoa;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 
 /**
  *
  * @author Computador
  */
-public class ViewCadastroItemController {
+public class ViewCadastroItemController implements Initializable {
 
     @FXML
     private JFXTextField tfnome;
@@ -69,4 +74,17 @@ public class ViewCadastroItemController {
             Logger.getLogger(ViewCadastroItemController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            List<Fornecedor> forn = new Facade().getAllFornecedor();
+            forn.forEach((f) -> {
+                this.cbFornecedor.getItems().add(f.getNome());
+            });
+        } catch (Exception ex) {
+            Logger.getLogger(ViewCadastroItemController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

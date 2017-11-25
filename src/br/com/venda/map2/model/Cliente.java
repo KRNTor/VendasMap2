@@ -5,39 +5,21 @@
  */
 package br.com.venda.map2.model;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  *
  * @author Computador
  */
 @Entity
+@DiscriminatorValue("cliente")
 public class Cliente extends Pessoa {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
     private int qtdCompras;
-    private Endereco endereco;
 
     public Cliente() {
-        endereco = new Endereco();
-    }
-
-    public Cliente(int qtdCompras, Endereco endereco) {
-        this.qtdCompras = qtdCompras;
-        this.endereco = endereco;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+        this.qtdCompras = 0;
     }
 
     public int getQtdCompras() {
@@ -48,12 +30,9 @@ public class Cliente extends Pessoa {
         this.qtdCompras = qtdCompras;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    @Override
+    public String toString() {
+        return "Cliente{" + "id=" + getId() + ", qtdCompras=" + qtdCompras + '}';
     }
 
 }

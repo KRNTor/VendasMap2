@@ -31,48 +31,66 @@ public class Endereco {
     public Endereco() {
     }
 
+    public Endereco(String rua, String bairro, String cep, String UF, String cidade, String complemento, int numero) {
+        this.rua = rua;
+        this.bairro = bairro;
+        this.cep = cep;
+        this.UF = UF;
+        this.cidade = cidade;
+        this.complemento = complemento;
+        this.numero = numero;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getRua() {
         return rua;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public String getUF() {
-        return UF;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public String getComplemento() {
-        return complemento;
     }
 
     public void setRua(String rua) {
         this.rua = rua;
     }
 
+    public String getBairro() {
+        return bairro;
+    }
+
     public void setBairro(String bairro) {
         this.bairro = bairro;
+    }
+
+    public String getCep() {
+        return cep;
     }
 
     public void setCep(String cep) {
         this.cep = cep;
     }
 
+    public String getUF() {
+        return UF;
+    }
+
     public void setUF(String UF) {
         this.UF = UF;
     }
 
+    public String getCidade() {
+        return cidade;
+    }
+
     public void setCidade(String cidade) {
         this.cidade = cidade;
+    }
+
+    public String getComplemento() {
+        return complemento;
     }
 
     public void setComplemento(String complemento) {
@@ -85,6 +103,11 @@ public class Endereco {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    @Override
+    public String toString() {
+        return "Endereco{" + "id=" + id + ", rua=" + rua + ", bairro=" + bairro + ", cep=" + cep + ", UF=" + UF + ", cidade=" + cidade + ", complemento=" + complemento + ", numero=" + numero + '}';
     }
 
 }

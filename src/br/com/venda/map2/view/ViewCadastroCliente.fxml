@@ -26,7 +26,7 @@
                            <children>
                               <JFXTextField fx:id="tfnome" focusColor="#1ed760" labelFloat="true" prefHeight="30.0" prefWidth="200.0" promptText="nome" style="-fx-text-fill: #000;" />
                               <JFXTextField fx:id="tfcpf" focusColor="#1ed760" labelFloat="true" prefHeight="30.0" prefWidth="200.0" promptText="cpf" style="-fx-text-fill: #000;" />
-                              <JFXDatePicker fx:id="tfdatanascimento" defaultColor="#1ed760" prefHeight="30.0" prefWidth="200.0" promptText="data de nascimento" />
+                              <JFXDatePicker fx:id="dtNascimento" defaultColor="#1ed760" prefHeight="30.0" prefWidth="200.0" promptText="data de nascimento" />
                            </children>
                         </HBox>
                         <Label layoutX="14.0" layoutY="6.0" text="informaçoes: cliente" textFill="WHITE" />

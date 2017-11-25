@@ -3,16 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Faculdade">
-            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/dao/FuncionarioDAO.java</file>
-            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/dao/ItemDAO.java</file>
             <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/Main.java</file>
-            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/dao/PessoaDAO.java</file>
-            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/util/JPAUtil.java</file>
-            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/dao/EnderecoDAO.java</file>
-            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/dao/ClienteDAO.java</file>
-            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/dao/FornecedorDAO.java</file>
-            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/META-INF/persistence.xml</file>
-            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/dao/VendaDAO.java</file>
+            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/model/Pessoa.java</file>
+            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/model/Fornecedor.java</file>
+            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/model/Funcionario.java</file>
+            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/model/Cliente.java</file>
+            <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/model/Endereco.java</file>
         </group>
     </open-files>
 </project-private>

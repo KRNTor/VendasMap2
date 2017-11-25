@@ -24,7 +24,7 @@
                             </VBox.margin>
                             <children>
                                 <Label layoutX="4.0" layoutY="4.0" text="informaçoes: conta" textFill="WHITE" />
-                                <HBox alignment="CENTER" focusTraversable="true" layoutY="26.0" prefHeight="68.0" prefWidth="723.0" spacing="10.0">
+                                <HBox alignment="CENTER" focusTraversable="true" layoutY="26.0" prefHeight="68.0" prefWidth="782.0" spacing="10.0">
                                     <children>
                                         <JFXTextField fx:id="tflogin" focusColor="#1ed760" labelFloat="true" prefHeight="24.0" prefWidth="283.0" promptText="login" style="-fx-text-fill: black;" />
                                         <JFXPasswordField fx:id="tfsenha" focusColor="#1ed760" labelFloat="true" prefWidth="283.0" promptText="senha" style="-fx-text-fill: black;" />

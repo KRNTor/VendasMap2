@@ -25,6 +25,7 @@ public class Item implements IPrototype<Item> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String nome;
     private double precoCompraItem;
     private double precoVendaItem;

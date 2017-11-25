@@ -22,9 +22,9 @@ public class FuncionarioDAO extends DaoGenericImpl<Funcionario> implements IFunc
     public Funcionario getByLogin(String login, String senha) {
         try {
             em = JPAUtil.getEntityManager();
-            Query query = em.createQuery("select f from Funcionario f where f.login = :senha and f.senha = :senha");
-            query.setParameter("username", login);
-            query.setParameter("password", senha);
+            Query query = em.createQuery("select p from Pessoa p where p.login = :login and p.senha = :senha");
+            query.setParameter("login", login);
+            query.setParameter("senha", senha);
             return (Funcionario) query.getSingleResult();
         } catch (Exception ex) {
             ex.printStackTrace();

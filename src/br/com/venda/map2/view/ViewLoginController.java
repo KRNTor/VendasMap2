@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javax.swing.JOptionPane;
+import salao.util.CriptografiaUtil;
 
 /**
  *
@@ -32,7 +33,7 @@ public class ViewLoginController {
     public void logar() {
         try {
             //Colocar Criptografia MD5
-            Funcionario func = new Facade().getFuncionarioByLogin(this.tfLogin.getText(), this.tfSenha.getText());
+            Funcionario func = new Facade().getFuncionarioByLogin(this.tfLogin.getText(), CriptografiaUtil.md5(this.tfSenha.getText()));
             if (func != null) {
                 Main.showViewConta(func);
             } else {

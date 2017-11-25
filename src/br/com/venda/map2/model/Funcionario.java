@@ -5,48 +5,35 @@
  */
 package br.com.venda.map2.model;
 
-import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author Computador
  */
 @Entity
+@Table(name = "PESSOA")
+@DiscriminatorValue("funcionario")
 public class Funcionario extends Pessoa {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
     private double salario;
     private String funcao;
     private String login;
     private String senha;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Endereco end;
 
     public Funcionario() {
     }
 
-    public Funcionario(double salario, String funcao, String login, String senha, Endereco end) {
+    public Funcionario(double salario, String funcao, String login, String senha) {
         this.salario = salario;
         this.funcao = funcao;
         this.login = login;
         this.senha = senha;
-        this.end = end;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public double getSalario() {
@@ -81,12 +68,9 @@ public class Funcionario extends Pessoa {
         this.senha = senha;
     }
 
-    public Endereco getEnd() {
-        return end;
-    }
-
-    public void setEnd(Endereco end) {
-        this.end = end;
+    @Override
+    public String toString() {
+        return "Funcionario{" + "id=" + getId() + ", salario=" + salario + ", funcao=" + funcao + ", login=" + login + ", senha=" + senha + '}';
     }
 
 }

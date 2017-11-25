@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="356.0" prefWidth="789.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <Pane prefHeight="356.0" prefWidth="789.0" style="-fx-background-color: #3d3d3d;" BorderPane.alignment="CENTER">
@@ -20,7 +19,7 @@
                <children>
                   <Pane prefHeight="93.0" prefWidth="789.0">
                      <children>
-                        <HBox prefHeight="93.0" prefWidth="789.0" spacing="15.0">
+                        <HBox focusTraversable="true" prefHeight="93.0" prefWidth="789.0" spacing="15.0">
                            <children>
                               <JFXTextField focusColor="#1ed760" labelFloat="true" prefHeight="30.0" prefWidth="377.0" promptText="valor total (R$)" style="-fx-text-fill: #000;" />
                               <JFXDatePicker defaultColor="#1ed760" prefHeight="30.0" prefWidth="377.0" promptText="data venda" style="-fx-text-fill: #000;" />
@@ -33,13 +32,13 @@
                   </Pane>
                   <HBox prefHeight="196.0" prefWidth="789.0" spacing="15.0">
                      <children>
-                        <TableView prefHeight="196.0" prefWidth="377.0">
+                        <TableView prefHeight="196.0" prefWidth="377.0" stylesheets="@../res/css/style.css">
                           <columns>
                             <TableColumn prefWidth="75.0" text="C1" />
                             <TableColumn prefWidth="75.0" text="C2" />
                           </columns>
                         </TableView>
-                        <TableView prefHeight="200.0" prefWidth="377.0" stylesheets="@../res/style.css">
+                        <TableView prefHeight="200.0" prefWidth="377.0" stylesheets="@../res/css/style.css">
                           <columns>
                             <TableColumn prefWidth="75.0" text="C1" />
                             <TableColumn prefWidth="75.0" text="C2" />

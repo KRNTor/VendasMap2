@@ -26,8 +26,8 @@
                      <children>
                         <HBox alignment="CENTER" focusTraversable="true" layoutY="17.0" prefHeight="83.0" prefWidth="724.0" spacing="10.0">
                            <children>
-                              <JFXTextField focusColor="#1ed760" labelFloat="true" prefWidth="250.0" promptText="nome" />
-                              <JFXTextField focusColor="#1ed760" labelFloat="true" prefWidth="250.0" promptText="cnpj" />
+                              <JFXTextField fx:id="tfnome" focusColor="#1ed760" labelFloat="true" prefWidth="250.0" promptText="nome" />
+                              <JFXTextField fx:id="tfcnpj" focusColor="#1ed760" labelFloat="true" prefWidth="250.0" promptText="cnpj" />
                            </children>
                         </HBox>
                         <Label layoutX="14.0" layoutY="6.0" text="informaçoes: fornecedor" textFill="WHITE" />
@@ -56,7 +56,7 @@
                         </HBox>
                      </children>
                   </Pane>
-                  <JFXButton prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #1ED760;" text="cadastrar" textFill="WHITE" />
+                  <JFXButton onAction="#cadastrar" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #1ED760;" text="cadastrar" textFill="WHITE" />
                </children>
             </VBox>
          </children>

@@ -6,6 +6,7 @@
 package br;
 
 import br.com.venda.map2.model.*;
+import br.com.venda.map2.view.ViewCadastroClienteController;
 import br.com.venda.map2.view.ViewContaController;
 import java.io.IOException;
 import javafx.application.Application;
@@ -54,6 +55,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("com/venda/map2/view/ViewConta.fxml"));
         BorderPane borderPane = loader.load();
+        Main.mainPane.setCenter(borderPane);
         ViewContaController control = (ViewContaController) loader.getController();
         control.setStage(Main.primaryStage);
         control.setFuncionario(func);
@@ -66,7 +68,65 @@ public class Main extends Application {
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(Main.primaryStage);
-        stage.setTitle("Cadastrar Funcionario");
+        stage.setTitle("cadastrar funcionario");
+        stage.setResizable(false);
+        Scene scene = new Scene(borderPane);
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
+
+    public static void showStageCadastrarCliente() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("com/venda/map2/view/ViewCadastroCliente.fxml"));
+        BorderPane borderPane = loader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(Main.primaryStage);
+        stage.setTitle("cadastrar cliente");
+        stage.setResizable(false);
+        ViewCadastroClienteController control = (ViewCadastroClienteController) loader.getController();
+        control.setStage(stage);
+        Scene scene = new Scene(borderPane);
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
+
+    public static void showStageCadastrarFornecedor() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("com/venda/map2/view/ViewCadastroFornecedor.fxml"));
+        BorderPane borderPane = loader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(Main.primaryStage);
+        stage.setTitle("cadastrar fornecedor");
+        stage.setResizable(false);
+        Scene scene = new Scene(borderPane);
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
+
+    public static void showStageCadastrarItem() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("com/venda/map2/view/ViewCadastroItem.fxml"));
+        BorderPane borderPane = loader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(Main.primaryStage);
+        stage.setTitle("cadastrar item");
+        stage.setResizable(false);
+        Scene scene = new Scene(borderPane);
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
+
+    public static void showStageCadastrarVenda() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("com/venda/map2/view/ViewVenda.fxml"));
+        BorderPane borderPane = loader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(Main.primaryStage);
+        stage.setTitle("venda");
         stage.setResizable(false);
         Scene scene = new Scene(borderPane);
         stage.setScene(scene);

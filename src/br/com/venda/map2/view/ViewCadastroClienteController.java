@@ -15,7 +15,8 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -48,6 +49,7 @@ public class ViewCadastroClienteController {
     private String dia;
     private String mes;
     private String ano;
+    private Stage stage;
 
     @FXML
     public void cadastrar() {
@@ -71,12 +73,17 @@ public class ViewCadastroClienteController {
             c.getEndereco().setCidade(this.tfcidade.getText());
             c.getEndereco().setComplemento(this.tfcomplemento.getText());
             c.getEndereco().setNumero(Integer.valueOf(this.tfnumero.getText()));
-            c.setQtdCompras(0);
             fa.saveCliente(c);
+            JOptionPane.showMessageDialog(null, "cliente cadastrado com sucesso!", "cadastro cliente", JOptionPane.INFORMATION_MESSAGE);
+            this.stage.close();
         } catch (DAOException ex) {
             Logger.getLogger(ViewCadastroClienteController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
             Logger.getLogger(ViewCadastroClienteController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 }
