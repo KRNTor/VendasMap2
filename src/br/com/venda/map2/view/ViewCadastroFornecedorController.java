@@ -9,16 +9,20 @@ import br.com.venda.map2.exception.DAOException;
 import br.com.venda.map2.facade.Facade;
 import br.com.venda.map2.model.Endereco;
 import br.com.venda.map2.model.Fornecedor;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  *
  * @author Computador
  */
-public class ViewCadastroFornecedorController {
+public class ViewCadastroFornecedorController implements Initializable {
 
     @FXML
     private TextField tfnome;
@@ -39,7 +43,8 @@ public class ViewCadastroFornecedorController {
     @FXML
     private TextField tfnumero;
 
-    private Facade fa = new Facade();
+    private Facade fa;
+    private Stage stage;
 
     @FXML
     public void cadastrar() {
@@ -55,10 +60,20 @@ public class ViewCadastroFornecedorController {
             end.setComplemento(this.tfcomplemento.getText());
             end.setNumero(Integer.valueOf(this.tfnumero.getText()));
             f.setEndereco(end);
-            fa.saveFornecedor(f);
+            this.fa.saveFornecedor(f);
+            this.stage.close();
         } catch (DAOException ex) {
             Logger.getLogger(ViewCadastroFornecedorController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        this.fa = new Facade();
     }
 
 }

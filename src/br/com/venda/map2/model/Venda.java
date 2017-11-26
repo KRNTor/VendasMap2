@@ -8,6 +8,8 @@ package br.com.venda.map2.model;
 import br.com.venda.map2.prototype.IPrototype;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,30 +23,33 @@ import javax.persistence.TemporalType;
  *
  * @author Computador
  */
-public class Venda implements IPrototype<Venda>{
+@Entity
+public class Venda implements IPrototype<Venda> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @OneToOne
     private Cliente cliente;
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Item> item;
     @OneToOne(fetch = FetchType.EAGER)
     private Funcionario funcionario;
     private String modoDePagamento;
     @Temporal(TemporalType.DATE)
     private Date dtVenda;
+    private double valor;
 
     public Venda() {
     }
 
-    public Venda(Cliente cliente, List<Item> item, Funcionario funcionario, String modoDePagamento, Date dtVenda) {
+    public Venda(Cliente cliente, List<Item> item, Funcionario funcionario, String modoDePagamento, Date dtVenda, double valor) {
         this.cliente = cliente;
         this.item = item;
         this.funcionario = funcionario;
         this.modoDePagamento = modoDePagamento;
         this.dtVenda = dtVenda;
+        this.valor = valor;
     }
 
     public long getId() {
@@ -93,6 +98,14 @@ public class Venda implements IPrototype<Venda>{
 
     public void setDtVenda(Date dtVenda) {
         this.dtVenda = dtVenda;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     @Override

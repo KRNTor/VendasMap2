@@ -7,7 +7,10 @@ package br;
 
 import br.com.venda.map2.model.*;
 import br.com.venda.map2.view.ViewCadastroClienteController;
+import br.com.venda.map2.view.ViewCadastroFornecedorController;
+import br.com.venda.map2.view.ViewCadastroItemController;
 import br.com.venda.map2.view.ViewContaController;
+import br.com.venda.map2.view.ViewVendaController;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -100,6 +103,8 @@ public class Main extends Application {
         stage.initOwner(Main.primaryStage);
         stage.setTitle("cadastrar fornecedor");
         stage.setResizable(false);
+        ViewCadastroFornecedorController control = (ViewCadastroFornecedorController) loader.getController();
+        control.setStage(stage);
         Scene scene = new Scene(borderPane);
         stage.setScene(scene);
         stage.showAndWait();
@@ -114,6 +119,8 @@ public class Main extends Application {
         stage.initOwner(Main.primaryStage);
         stage.setTitle("cadastrar item");
         stage.setResizable(false);
+        ViewCadastroItemController control = (ViewCadastroItemController) loader.getController();
+        control.setStage(stage);
         Scene scene = new Scene(borderPane);
         stage.setScene(scene);
         stage.showAndWait();
@@ -126,8 +133,10 @@ public class Main extends Application {
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(Main.primaryStage);
-        stage.setTitle("venda");
+        stage.setTitle("registrar venda");
         stage.setResizable(false);
+        ViewVendaController control = (ViewVendaController) loader.getController();
+        control.setStage(stage);
         Scene scene = new Scene(borderPane);
         stage.setScene(scene);
         stage.showAndWait();

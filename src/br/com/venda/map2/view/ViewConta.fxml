@@ -94,10 +94,10 @@
                                           <Insets left="20.0" right="20.0" top="20.0" />
                                        </padding>
                                     </HBox>
-                                    <TableView prefHeight="454.0" prefWidth="932.0">
+                                    <TableView fx:id="tableCliente" prefHeight="454.0" prefWidth="932.0">
                                        <columns>
-                                          <TableColumn prefWidth="594.0" resizable="false" text="nome" />
-                                          <TableColumn minWidth="0.0" prefWidth="297.0" resizable="false" text="quant. compras" />
+                                          <TableColumn fx:id="colunaClienteNome" prefWidth="594.0" resizable="false" text="nome" />
+                                          <TableColumn fx:id="colunaClienteQunt" minWidth="0.0" prefWidth="297.0" resizable="false" text="quant. compras" />
                                        </columns>
                                     </TableView>
                                  </children>
@@ -128,10 +128,10 @@
                                           <Insets left="20.0" right="20.0" top="20.0" />
                                        </padding>
                                     </HBox>
-                                    <TableView prefHeight="454.0" prefWidth="932.0">
+                                    <TableView fx:id="tableFuncionario" prefHeight="454.0" prefWidth="932.0">
                                       <columns>
-                                        <TableColumn prefWidth="594.0" resizable="false" text="nome" />
-                                        <TableColumn minWidth="0.0" prefWidth="297.0" resizable="false" text="login" />
+                                        <TableColumn fx:id="colunaFuncionarioNome" prefWidth="594.0" resizable="false" text="nome" />
+                                        <TableColumn fx:id="colunaFuncionarioLogin" minWidth="0.0" prefWidth="297.0" resizable="false" text="login" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -162,10 +162,10 @@
                                           <Insets left="20.0" right="20.0" top="20.0" />
                                        </padding>
                                     </HBox>
-                                    <TableView prefHeight="454.0" prefWidth="932.0">
+                                    <TableView fx:id="tableFornecedor" prefHeight="454.0" prefWidth="932.0">
                                        <columns>
-                                          <TableColumn prefWidth="594.0" resizable="false" text="nome" />
-                                          <TableColumn minWidth="0.0" prefWidth="297.0" resizable="false" text="cnpj" />
+                                          <TableColumn fx:id="colunaFornecedorNome" prefWidth="594.0" resizable="false" text="nome" />
+                                          <TableColumn fx:id="colunaFornecedorCnpj" minWidth="0.0" prefWidth="297.0" resizable="false" text="cnpj" />
                                        </columns>
                                     </TableView>
                                  </children>
@@ -196,10 +196,10 @@
                                           <Insets left="20.0" right="20.0" top="20.0" />
                                        </padding>
                                     </HBox>
-                                    <TableView prefHeight="454.0" prefWidth="932.0">
+                                    <TableView fx:id="tableItem" prefHeight="454.0" prefWidth="932.0">
                                        <columns>
-                                          <TableColumn prefWidth="594.0" resizable="false" text="nome" />
-                                          <TableColumn minWidth="0.0" prefWidth="297.0" resizable="false" text="quant. estoque" />
+                                          <TableColumn fx:id="colunaItemNome" prefWidth="594.0" resizable="false" text="nome" />
+                                          <TableColumn fx:id="colunaItemEstq" minWidth="0.0" prefWidth="297.0" resizable="false" text="quant. estoque" />
                                        </columns>
                                     </TableView>
                                  </children>
@@ -230,11 +230,11 @@
                                           <Insets left="20.0" right="20.0" top="20.0" />
                                        </padding>
                                     </HBox>
-                                    <TableView prefHeight="454.0" prefWidth="932.0">
+                                    <TableView fx:id="tableVenda" prefHeight="454.0" prefWidth="932.0">
                                        <columns>
-                                          <TableColumn prefWidth="517.0" resizable="false" text="nome cliente" />
-                                          <TableColumn minWidth="0.0" prefWidth="220.0" resizable="false" text="data" />
-                                          <TableColumn minWidth="0.0" prefWidth="154.0" resizable="false" text="valor (R$)" />
+                                          <TableColumn fx:id="colunaVendaNomeCliente" prefWidth="517.0" resizable="false" text="nome cliente" />
+                                          <TableColumn fx:id="colunaVendaData" minWidth="0.0" prefWidth="220.0" resizable="false" text="data" />
+                                          <TableColumn fx:id="colunaVendaValor" minWidth="0.0" prefWidth="154.0" resizable="false" text="valor (R$)" />
                                        </columns>
                                     </TableView>
                                  </children>

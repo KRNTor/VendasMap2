@@ -9,7 +9,6 @@ import br.com.venda.map2.exception.DAOException;
 import br.com.venda.map2.facade.Facade;
 import br.com.venda.map2.model.Fornecedor;
 import br.com.venda.map2.model.Item;
-import br.com.venda.map2.model.Pessoa;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
@@ -22,6 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.stage.Stage;
 
 /**
  *
@@ -42,10 +42,11 @@ public class ViewCadastroItemController implements Initializable {
     @FXML
     private JFXTextField tfquantidade;
 
-    private Facade fa = new Facade();
+    private Facade fac;
     private String dia;
     private String mes;
     private String ano;
+    private Stage stage;
 
     @FXML
     public void cadastrar() {
@@ -67,7 +68,8 @@ public class ViewCadastroItemController implements Initializable {
             Fornecedor f = new Facade().getFornecedorByName(String.valueOf(this.cbFornecedor.getSelectionModel().getSelectedItem()));
             i.setFornecedor(f);
             i.setQuantidade(Integer.valueOf(this.tfquantidade.getText()));
-            this.fa.saveItem(i);
+            this.fac.saveItem(i);
+            this.stage.close();
         } catch (ParseException ex) {
             Logger.getLogger(ViewCadastroItemController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DAOException ex) {
@@ -75,10 +77,15 @@ public class ViewCadastroItemController implements Initializable {
         }
     }
 
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            List<Fornecedor> forn = new Facade().getAllFornecedor();
+            this.fac = new Facade();
+            List<Fornecedor> forn = this.fac.getAllFornecedor();
             forn.forEach((f) -> {
                 this.cbFornecedor.getItems().add(f.getNome());
             });
