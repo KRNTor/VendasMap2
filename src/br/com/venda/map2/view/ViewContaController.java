@@ -201,7 +201,7 @@ public class ViewContaController implements Initializable {
     @FXML
     public void showCadVenda() {
         try {
-            Main.showStageCadastrarVenda();
+            Main.showStageCadastrarVenda(func);
         } catch (IOException ex) {
             Logger.getLogger(ViewContaController.class.getName()).log(Level.SEVERE, null, ex);
         }

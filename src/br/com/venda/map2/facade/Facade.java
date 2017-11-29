@@ -42,6 +42,10 @@ public class Facade {
         return this.daoCliente.getById(id);
     }
 
+    public Cliente getClienteByName(String nome) throws DAOException {
+        return this.daoCliente.getByName(nome);
+    }
+
     public List<Cliente> getAllCliente() throws DAOException, DAOException, DAOException {
         return this.daoCliente.getAll();
     }
@@ -95,8 +99,8 @@ public class Facade {
     public Fornecedor removeFornecedor(Fornecedor forn) throws DAOException {
         return this.daoFornecedor.remove(forn);
     }
-    
-    public Fornecedor getFornecedorByName(String n) throws DAOException{
+
+    public Fornecedor getFornecedorByName(String n) throws DAOException {
         return this.daoFornecedor.getFornecedorByName(n);
     }
 
@@ -134,6 +138,10 @@ public class Facade {
         return this.daoItem.getById(id);
     }
 
+    public Item getItemByName(String nome) throws DAOException {
+        return this.daoItem.getByName(nome);
+    }
+
     public List<Item> getAllItem() throws DAOException {
         return this.daoItem.getAll();
     }
@@ -167,5 +175,4 @@ public class Facade {
         return this.daoVenda.remove(venda);
     }
 
-   
 }

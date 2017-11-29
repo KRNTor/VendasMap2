@@ -126,7 +126,7 @@ public class Main extends Application {
         stage.showAndWait();
     }
 
-    public static void showStageCadastrarVenda() throws IOException {
+    public static void showStageCadastrarVenda(Funcionario func) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("com/venda/map2/view/ViewVenda.fxml"));
         BorderPane borderPane = loader.load();
@@ -137,6 +137,7 @@ public class Main extends Application {
         stage.setResizable(false);
         ViewVendaController control = (ViewVendaController) loader.getController();
         control.setStage(stage);
+        control.setFuncionario(func);
         Scene scene = new Scene(borderPane);
         stage.setScene(scene);
         stage.showAndWait();

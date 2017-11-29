@@ -32,7 +32,7 @@ public class Venda implements IPrototype<Venda> {
     @OneToOne
     private Cliente cliente;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Item> item;
+    private List<Item> itens;
     @OneToOne(fetch = FetchType.EAGER)
     private Funcionario funcionario;
     private String modoDePagamento;
@@ -43,9 +43,9 @@ public class Venda implements IPrototype<Venda> {
     public Venda() {
     }
 
-    public Venda(Cliente cliente, List<Item> item, Funcionario funcionario, String modoDePagamento, Date dtVenda, double valor) {
+    public Venda(Cliente cliente, List<Item> itens, Funcionario funcionario, String modoDePagamento, Date dtVenda, double valor) {
         this.cliente = cliente;
-        this.item = item;
+        this.itens = itens;
         this.funcionario = funcionario;
         this.modoDePagamento = modoDePagamento;
         this.dtVenda = dtVenda;
@@ -69,11 +69,11 @@ public class Venda implements IPrototype<Venda> {
     }
 
     public List<Item> getItem() {
-        return item;
+        return itens;
     }
 
-    public void setItem(List<Item> item) {
-        this.item = item;
+    public void setItem(List<Item> itens) {
+        this.itens = itens;
     }
 
     public Funcionario getFuncionario() {

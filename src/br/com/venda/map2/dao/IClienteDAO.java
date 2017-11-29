@@ -11,6 +11,8 @@ import br.com.venda.map2.model.Cliente;
  *
  * @author Computador
  */
-public interface IClienteDAO extends IDaoGeneric<Cliente>{
-        
+public interface IClienteDAO extends IDaoGeneric<Cliente> {
+
+    Cliente getByName(String nome);
+
 }

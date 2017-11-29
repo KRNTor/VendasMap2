@@ -12,5 +12,7 @@ import br.com.venda.map2.model.Item;
  * @author Computador
  */
 public interface IItemDAO extends IDaoGeneric<Item> {
-    
+
+    Item getByName(String nome);
+
 }
