@@ -5,8 +5,7 @@
  */
 package br.com.venda.map2.modelGeneric;
 
-import static br.com.venda.map2.model.Funcionario_.login;
-import br.com.venda.map2.model.Venda;
+import br.com.venda.map2.model.*;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
