@@ -91,4 +91,9 @@ public class Item implements IPrototype<Item> {
         return quantidade;
     }
 
+    @Override
+    public String toString() {
+        return "Item{" + "id=" + id + ", nome=" + nome + ", precoCompraItem=" + precoCompraItem + ", precoVendaItem=" + precoVendaItem + ", fornecedor=" + fornecedor + ", validade=" + validade + ", quantidade=" + quantidade + '}';
+    }
+
 }

@@ -13,5 +13,17 @@
             <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/view/ViewVendaController.java</file>
             <file>file:/home/felpz/NetBeansProjects/VendasMap2/src/br/com/venda/map2/modelGeneric/GenericItem.java</file>
         </group>
+        <group>
+            <file>file:/C:/Users/wfeli/Documents/NetBeansProjects/VendasMap2/src/br/com/venda/map2/model/Fornecedor.java</file>
+            <file>file:/C:/Users/wfeli/Documents/NetBeansProjects/VendasMap2/src/br/com/venda/map2/model/Funcionario.java</file>
+            <file>file:/C:/Users/wfeli/Documents/NetBeansProjects/VendasMap2/src/br/com/venda/map2/model/Item.java</file>
+            <file>file:/C:/Users/wfeli/Documents/NetBeansProjects/VendasMap2/src/META-INF/persistence.xml</file>
+            <file>file:/C:/Users/wfeli/Documents/NetBeansProjects/VendasMap2/src/br/Main.java</file>
+            <file>file:/C:/Users/wfeli/Documents/NetBeansProjects/VendasMap2/src/br/com/venda/map2/modelGeneric/GenericVenda.java</file>
+            <file>file:/C:/Users/wfeli/Documents/NetBeansProjects/VendasMap2/src/br/com/venda/map2/dao/DaoGenericImpl.java</file>
+            <file>file:/C:/Users/wfeli/Documents/NetBeansProjects/VendasMap2/src/br/com/venda/map2/modelGeneric/GenericFuncionarioController.java</file>
+            <file>file:/C:/Users/wfeli/Documents/NetBeansProjects/VendasMap2/src/br/com/venda/map2/view/ViewCadastroItemController.java</file>
+            <file>file:/C:/Users/wfeli/Documents/NetBeansProjects/VendasMap2/src/br/com/venda/map2/view/ViewContaController.java</file>
+        </group>
     </open-files>
 </project-private>

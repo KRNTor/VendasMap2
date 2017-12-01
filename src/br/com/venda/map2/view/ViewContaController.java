@@ -8,6 +8,8 @@ package br.com.venda.map2.view;
 import br.Main;
 import br.com.venda.map2.facade.Facade;
 import br.com.venda.map2.model.Funcionario;
+import br.com.venda.map2.model.Item;
+import br.com.venda.map2.model.Pessoa;
 import br.com.venda.map2.modelGeneric.GenericCliente;
 import br.com.venda.map2.modelGeneric.GenericClienteController;
 import br.com.venda.map2.modelGeneric.GenericFornecedor;
@@ -30,6 +32,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
@@ -110,6 +113,7 @@ public class ViewContaController implements Initializable {
     private final GenericItemController controllerItem = new GenericItemController();
     private ObservableList<GenericVenda> olVenda;
     private final GenericVendaController controllerVenda = new GenericVendaController();
+    private Item item;
 
     @FXML
     public void showPaneCliente() {
@@ -191,7 +195,7 @@ public class ViewContaController implements Initializable {
     @FXML
     public void showCadItem() {
         try {
-            Main.showStageCadastrarItem();
+            Main.showStageCadastrarItem(item);
         } catch (IOException ex) {
             Logger.getLogger(ViewContaController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -259,6 +263,21 @@ public class ViewContaController implements Initializable {
             this.olItem = FXCollections.observableArrayList(this.controllerItem.listarAll(this.fac.getAllItem()));
             this.tableItem.setItems(null);
             this.tableItem.setItems(this.olItem);
+            this.tableItem.setRowFactory(tv -> {
+                TableRow<GenericItem> row = new TableRow<>();
+                row.setOnMouseClicked(event -> {
+                    if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                        try {
+                            GenericItem rowData = row.getItem();
+                            Item item = this.fac.getItemByName(rowData.getNome());
+                            Main.showStageCadastrarItem(item);
+                        } catch (Exception ex) {
+                            Logger.getLogger(ViewContaController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
+                return row;
+            });
         } catch (Exception ex) {
             Logger.getLogger(ViewContaController.class.getName()).log(Level.SEVERE, null, ex);
         }

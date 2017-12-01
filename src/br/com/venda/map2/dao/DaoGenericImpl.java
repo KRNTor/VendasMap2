@@ -41,9 +41,9 @@ public class DaoGenericImpl<T> implements IDaoGeneric<T> {
             manager.getTransaction().begin();
             manager.merge(t);
             manager.flush();
-            manager.refresh(t);
+            manager.getTransaction().commit();
+//            manager.refresh(t); por algum motivo naum funciona =]
             JPAUtil.close();
-
             return t;
         } catch (Exception e) {
             e.printStackTrace();

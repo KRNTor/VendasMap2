@@ -110,7 +110,7 @@ public class Main extends Application {
         stage.showAndWait();
     }
 
-    public static void showStageCadastrarItem() throws IOException {
+    public static void showStageCadastrarItem(Item item) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("com/venda/map2/view/ViewCadastroItem.fxml"));
         BorderPane borderPane = loader.load();
@@ -121,6 +121,7 @@ public class Main extends Application {
         stage.setResizable(false);
         ViewCadastroItemController control = (ViewCadastroItemController) loader.getController();
         control.setStage(stage);
+        control.setItem(item);
         Scene scene = new Scene(borderPane);
         stage.setScene(scene);
         stage.showAndWait();

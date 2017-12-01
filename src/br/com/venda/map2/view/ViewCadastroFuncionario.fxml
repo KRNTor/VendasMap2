@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.venda.map2.view.ViewCadastroFuncionarioController">
+<BorderPane maxHeight="477.0" maxWidth="801.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.venda.map2.view.ViewCadastroFuncionarioController">
     <center>
         <Pane prefHeight="477.0" prefWidth="801.0" BorderPane.alignment="CENTER">
             <children>
-                <VBox alignment="TOP_CENTER" prefHeight="477.0" prefWidth="801.0" spacing="10.0" style="-fx-background-color: #3d3d3d;">
+                <VBox alignment="TOP_CENTER" prefHeight="487.0" prefWidth="811.0" spacing="10.0" style="-fx-background-color: #3d3d3d;">
                     <children>
                         <Pane prefHeight="88.0" prefWidth="743.0" style="-fx-background-color: #3d3d3d;">
                             <VBox.margin>
