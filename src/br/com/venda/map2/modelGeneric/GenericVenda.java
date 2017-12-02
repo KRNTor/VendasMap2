@@ -10,7 +10,9 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -23,12 +25,14 @@ public class GenericVenda {
     private StringProperty data;
     private StringProperty nome_cliente;
     private DoubleProperty valor;
+    private LongProperty id;
 
     public GenericVenda(Venda venda) {
         try {
             this.nome_cliente = new SimpleStringProperty(venda.getCliente().getNome());
             this.data = new SimpleStringProperty(new SimpleDateFormat("dd/MM/yyyy").format(venda.getDtVenda()));
             this.valor = new SimpleDoubleProperty(venda.getValor());
+            this.id = new SimpleLongProperty(venda.getId());
         } catch (Exception ex) {
             Logger.getLogger(GenericCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -56,6 +60,10 @@ public class GenericVenda {
 
     public void setValor(Double valor) {
         this.valor.set(valor);
+    }
+    
+    public Long getId(Long id){
+        return this.id.get();
     }
 
     @Override

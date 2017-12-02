@@ -155,4 +155,8 @@ public class ViewCadastroFornecedorController implements Initializable {
         }
 
     }
+    
+    private void excluirFornecedor(Fornecedor fornecedor) throws DAOException{
+        fa.removeFornecedor(fornecedor);
+    }
 }

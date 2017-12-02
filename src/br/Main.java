@@ -64,7 +64,7 @@ public class Main extends Application {
         control.setFuncionario(func);
     }
 
-    public static void showStageCadastrarFuncinario() throws IOException {
+    public static void showStageCadastrarFuncinario(Funcionario funcionario) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("com/venda/map2/view/ViewCadastroFuncionario.fxml"));
         BorderPane borderPane = loader.load();
@@ -78,7 +78,7 @@ public class Main extends Application {
         stage.showAndWait();
     }
 
-    public static void showStageCadastrarCliente() throws IOException {
+    public static void showStageCadastrarCliente(Cliente cliente) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("com/venda/map2/view/ViewCadastroCliente.fxml"));
         BorderPane borderPane = loader.load();
@@ -94,7 +94,7 @@ public class Main extends Application {
         stage.showAndWait();
     }
 
-    public static void showStageCadastrarFornecedor() throws IOException {
+    public static void showStageCadastrarFornecedor(Fornecedor fornecedor) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("com/venda/map2/view/ViewCadastroFornecedor.fxml"));
         BorderPane borderPane = loader.load();
@@ -127,7 +127,7 @@ public class Main extends Application {
         stage.showAndWait();
     }
 
-    public static void showStageCadastrarVenda(Funcionario func) throws IOException {
+    public static void showStageCadastrarVenda(Funcionario func, Venda venda) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("com/venda/map2/view/ViewVenda.fxml"));
         BorderPane borderPane = loader.load();

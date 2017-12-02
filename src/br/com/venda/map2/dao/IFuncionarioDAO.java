@@ -14,4 +14,6 @@ import br.com.venda.map2.model.Funcionario;
 public interface IFuncionarioDAO extends IDaoGeneric<Funcionario> {
 
     Funcionario getByLogin(String login, String senha);
+    
+    Funcionario getByName(String nome);
 }

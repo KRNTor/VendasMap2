@@ -153,5 +153,9 @@ public class ViewCadastroItemController implements Initializable {
             Logger.getLogger(ViewCadastroItemController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    private void excluirItem(Item item) throws DAOException{
+        fac.removeItem(item);
+    }
 
 }

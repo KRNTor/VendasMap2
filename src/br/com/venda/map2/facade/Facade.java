@@ -116,6 +116,10 @@ public class Facade {
     public Funcionario getFuncionarioByLogin(String login, String senha) throws DAOException {
         return this.daoFuncionario.getByLogin(login, senha);
     }
+    
+     public Funcionario getFuncionarioByName(String nome) throws DAOException {
+        return this.daoFuncionario.getByName(nome);
+    }
 
     public List<Funcionario> getAllFuncionario() throws DAOException {
         return this.daoFuncionario.getAll();

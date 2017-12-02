@@ -35,4 +35,19 @@ public class FuncionarioDAO extends DaoGenericImpl<Funcionario> implements IFunc
         return null;
     }
 
+    @Override
+    public Funcionario getByName(String nome) {
+        try {
+            em = JPAUtil.getEntityManager();
+            Query query = em.createQuery("select p from Pessoa p where p.nome: =nome");
+            query.setParameter("nome", nome);
+            return (Funcionario) query.getSingleResult();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+//            throw new Exception(PropertiesUtil.getMsgValue(PropertiesUtil.MSG_ERROR_BUSCAR + " USUARIO NÃO ENCONTRADO!"));
+        } finally {
+            JPAUtil.close();
+        }
+        return null;
+    }
 }

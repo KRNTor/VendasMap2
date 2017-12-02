@@ -16,7 +16,7 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
-import com.sun.prism.impl.BaseMesh;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
@@ -209,5 +209,9 @@ public class ViewCadastroFuncionarioController {
             this.tffuncao.setEditable(false);
             this.tfsalario.setEditable(false);
         }
+    }
+    
+    private void excluirFuncionario(Funcionario funcionario) throws DAOException{
+        fac.removeFuncionario(funcionario);
     }
 }

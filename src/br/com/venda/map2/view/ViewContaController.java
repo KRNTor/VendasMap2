@@ -7,9 +7,12 @@ package br.com.venda.map2.view;
 
 import br.Main;
 import br.com.venda.map2.facade.Facade;
+import br.com.venda.map2.model.Cliente;
+import br.com.venda.map2.model.Fornecedor;
 import br.com.venda.map2.model.Funcionario;
 import br.com.venda.map2.model.Item;
 import br.com.venda.map2.model.Pessoa;
+import br.com.venda.map2.model.Venda;
 import br.com.venda.map2.modelGeneric.GenericCliente;
 import br.com.venda.map2.modelGeneric.GenericClienteController;
 import br.com.venda.map2.modelGeneric.GenericFornecedor;
@@ -227,6 +230,21 @@ public class ViewContaController implements Initializable {
             this.olCl = FXCollections.observableArrayList(this.controllerCl.listarAll(this.fac.getAllCliente()));
             this.tableCliente.setItems(null);
             this.tableCliente.setItems(this.olCl);
+             this.tableCliente.setRowFactory(tv -> {
+                TableRow<GenericCliente> row = new TableRow<>();
+                row.setOnMouseClicked(event -> {
+                    if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                        try {
+                            GenericCliente rowData = row.getItem();
+                            Cliente cliente = this.fac.getClienteByName(rowData.getNome());
+                            Main.showStageCadastrarCliente(cliente);
+                        } catch (Exception ex) {
+                            Logger.getLogger(ViewContaController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
+                return row;
+            });
         } catch (Exception ex) {
             Logger.getLogger(ViewContaController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -239,6 +257,21 @@ public class ViewContaController implements Initializable {
             this.olFunc = FXCollections.observableArrayList(this.controllerFunc.listarAll(this.fac.getAllFuncionario()));
             this.tableFuncionario.setItems(null);
             this.tableFuncionario.setItems(this.olFunc);
+             this.tableFuncionario.setRowFactory(tv -> {
+                TableRow<GenericFuncionario> row = new TableRow<>();
+                row.setOnMouseClicked(event -> {
+                    if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                        try {
+                            GenericFuncionario rowData = row.getItem();
+                            Funcionario funcionario = this.fac.getFuncionarioByName(rowData.getNome());
+                            Main.showStageCadastrarFuncinario(funcionario);
+                        } catch (Exception ex) {
+                            Logger.getLogger(ViewContaController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
+                return row;
+            });
         } catch (Exception ex) {
             Logger.getLogger(ViewContaController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -251,6 +284,21 @@ public class ViewContaController implements Initializable {
             this.olForn = FXCollections.observableArrayList(this.controllerForn.listarAll(this.fac.getAllFornecedor()));
             this.tableFornecedor.setItems(null);
             this.tableFornecedor.setItems(this.olForn);
+               this.tableFornecedor.setRowFactory(tv -> {
+                TableRow<GenericFornecedor> row = new TableRow<>();
+                row.setOnMouseClicked(event -> {
+                    if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                        try {
+                            GenericFornecedor rowData = row.getFornecedor();
+                            Fornecedor fornecedor = this.fac.getFornecedorByName(rowData.getNome());
+                            Main.showStageCadastrarFornecedor(fornecedor);
+                        } catch (Exception ex) {
+                            Logger.getLogger(ViewContaController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
+                return row;
+            });
         } catch (Exception ex) {
             Logger.getLogger(ViewContaController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -291,6 +339,21 @@ public class ViewContaController implements Initializable {
             this.olVenda = FXCollections.observableArrayList(this.controllerVenda.listarAll(this.fac.getAllVenda()));
             this.tableVenda.setItems(null);
             this.tableVenda.setItems(this.olVenda);
+             this.tableVenda.setRowFactory(tv -> {
+                TableRow<GenericVenda> row = new TableRow<>();
+                row.setOnMouseClicked(event -> {
+                    if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                        try {
+                            GenericVenda rowData = row.getItem();
+                            Venda venda = this.fac.getVendaById(rowData.getId(Long.MIN_VALUE));
+                            Main.showStageCadastrarVenda(func,venda);
+                        } catch (Exception ex) {
+                            Logger.getLogger(ViewContaController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
+                return row;
+            });
         } catch (Exception ex) {
             Logger.getLogger(ViewContaController.class.getName()).log(Level.SEVERE, null, ex);
         }

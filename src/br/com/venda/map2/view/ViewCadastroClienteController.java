@@ -174,4 +174,8 @@ public class ViewCadastroClienteController {
             this.tfrua.setEditable(false);
         }
     }
+    
+    private void excluirCliente(Cliente cliente) throws DAOException{
+        fa.removeCliente(cliente);
+    }
 }
